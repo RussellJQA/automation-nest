@@ -56,3 +56,12 @@ test("Automation Nest - Playwright Challenge S. No. 3", async ({ page }) => {
 
     // TODO Loop through all of the "is checked" headings and log each of them individually
 });
+
+test("This seems to be more like what they're looking for", async ({ page }) => {
+    await page.goto("https://practice.automationnest.com/checkbox?from=landing1");
+
+    await page.getByRole('checkbox', { name: 'Age' }).check();
+    const heading = page.locator('h1').filter({hasText: "Age"});
+    const headingText = await heading.textContent();
+    console.log(headingText);
+})
